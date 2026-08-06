@@ -1,0 +1,61 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Products collection rules
+    match /products/{productId} {
+      // Publicly viewable catalog
+      allow get, list: if true;
+
+      // Only verified admin can write
+      allow create: if request.auth != null 
+        && request.auth.token.email_verified == true 
+        && (request.auth.token.email == 'pezzjoss@gmail.com')
+        && isValidId(productId)
+        && isValidProduct(request.resource.data);
+
+      allow update: if request.auth != null 
+        && request.auth.token.email_verified == true 
+        && (request.auth.token.email == 'pezzjoss@gmail.com')
+        && isValidId(productId)
+        && isValidProduct(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+
+      allow delete: if request.auth != null 
+        && request.auth.token.email_verified == true 
+        && (request.auth.token.email == 'pezzjoss@gmail.com')
+        && isValidId(productId);
+    }
+
+    // Helpers
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidProduct(data) {
+      return data.keys().hasAll(['title', 'price', 'category', 'image'])
+        && data.title is string && data.title.size() <= 100
+        && data.price is string && data.price.size() <= 30
+        && data.category is string && data.category.size() <= 100
+        && data.image is string && data.image.size() <= 1000
+        && (!('postType' in data) || (data.postType is string && data.postType.size() <= 100))
+        && (!('description' in data) || (data.description is string && data.description.size() <= 5000))
+        && (!('referenceUrl' in data) || (data.referenceUrl is string && data.referenceUrl.size() <= 1000))
+        && (!('originalUrl' in data) || (data.originalUrl is string && data.originalUrl.size() <= 1000))
+        && (!('altText' in data) || (data.altText is string && data.altText.size() <= 500))
+        && (!('caption' in data) || (data.caption is string && data.caption.size() <= 1000))
+        && (!('brand' in data) || (data.brand is string && data.brand.size() <= 200))
+        && (!('tags' in data) || (data.tags is list && data.tags.size() <= 50))
+        && (!('currency' in data) || (data.currency is string && data.currency.size() <= 10))
+        && (!('width' in data) || (data.width is number))
+        && (!('height' in data) || (data.height is number))
+        && (!('fileSize' in data) || (data.fileSize is string || data.fileSize is number))
+        && (!('fileFormat' in data) || (data.fileFormat is string && data.fileFormat.size() <= 100))
+        && (!('author' in data) || (data.author is string && data.author.size() <= 200));
+    }
+  }
+}

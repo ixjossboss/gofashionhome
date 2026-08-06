@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Fashion products in the catalog",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "maxLength": 100 },
+        "price": { "type": "string", "maxLength": 30 },
+        "category": { "type": "string", "maxLength": 100 },
+        "postType": { "type": "string", "maxLength": 100 },
+        "image": { "type": "string", "maxLength": 1000 },
+        "description": { "type": "string", "maxLength": 5000 },
+        "referenceUrl": { "type": "string", "maxLength": 1000 },
+        "originalUrl": { "type": "string", "maxLength": 1000 },
+        "altText": { "type": "string", "maxLength": 500 },
+        "caption": { "type": "string", "maxLength": 1000 },
+        "brand": { "type": "string", "maxLength": 200 },
+        "tags": { "type": "array", "description": "Tags or keywords list" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "fileSize": { "type": "string", "maxLength": 100 },
+        "fileFormat": { "type": "string", "maxLength": 100 },
+        "author": { "type": "string", "maxLength": 200 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "price", "category", "image"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of fashion products"
+    }
+  }
+}

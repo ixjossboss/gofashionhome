@@ -1,0 +1,6 @@
+{
+  "name": "GO Fashion Home",
+  "description": "Premium luxury fashion and custom tailoring in Akure, Ondo State, Nigeria. Exquisite bespoke designs, native wear, bridal attires, and high-quality tailoring accessories.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

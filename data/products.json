@@ -1,0 +1,46 @@
+[
+  {
+    "id": "prod-1",
+    "title": "Royal Majesty Agbada Set",
+    "price": "₦180,000",
+    "category": "Traditional & Classic Wear",
+    "postType": "Female Agbada",
+    "image": "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=600",
+    "description": "Rich Royal Blue custom-tailored Agbada with premium gold hand embroidery. Perfect for prestige traditional weddings and ceremonies.",
+    "referenceUrl": "https://gofashionhome.com/products/royal-majesty-agbada",
+    "createdAt": "2026-07-18T10:00:00.000Z"
+  },
+  {
+    "id": "prod-2",
+    "title": "Imperial Magenta Gown",
+    "price": "₦145,000",
+    "category": "Structured & Statement Dresses",
+    "postType": "Corset Dresses",
+    "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=600",
+    "description": "Sleek, body-contouring luxury floor-length gown featuring elegant magenta silk draping and fine corset finishing.",
+    "referenceUrl": "https://gofashionhome.com/products/imperial-magenta-gown",
+    "createdAt": "2026-07-18T10:01:00.000Z"
+  },
+  {
+    "id": "prod-3",
+    "title": "Luxury Hand-Woven Aso-Oke Set",
+    "price": "₦220,000",
+    "category": "Traditional & Classic Wear",
+    "postType": "George Wrapper and Blouse",
+    "image": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600",
+    "description": "Traditional Yoruba woven attire crafted with fine metallic Royal Blue threads, premium cotton, and magenta highlight patterns.",
+    "referenceUrl": "https://gofashionhome.com/products/aso-oke-set",
+    "createdAt": "2026-07-18T10:02:00.000Z"
+  },
+  {
+    "id": "prod-4",
+    "title": "Signature Silk Kimono Jacket",
+    "price": "₦45,000",
+    "category": "Casual & Easy Wear",
+    "postType": "Kimonos",
+    "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600",
+    "description": "Sleek silk blend floral print kimono, perfect for effortless elegant styling.",
+    "referenceUrl": "https://gofashionhome.com/products/golden-shears-kit",
+    "createdAt": "2026-07-18T10:03:00.000Z"
+  }
+]
